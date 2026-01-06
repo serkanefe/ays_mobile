@@ -17,8 +17,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from werkzeug.security import generate_password_hash
 
-# PostgreSQL bağlantısı (varsayılan)
-DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://ays:ayspass@localhost:5432/ays")
+# SQLite - PythonAnywhere uyumlu
+DATABASE_URL = "postgresql://postgres.ujkoketijvkbdbnanwvh:ayspass737526@aws-1-ap-south-1.pooler.supabase.com:6543/postgres"
 engine = create_engine(
   DATABASE_URL,
   pool_pre_ping=True,

@@ -3,12 +3,9 @@ services:
     name: ays-api
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn api:app
+    startCommand: "gunicorn api:app --bind 0.0.0.0:$PORT"
     envVars:
       - key: FLASK_ENV
         value: production
       - key: DATABASE_URL
         sync: false
-    routes:
-      - path: /
-        matchType: prefix

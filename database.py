@@ -19,8 +19,13 @@ from werkzeug.security import generate_password_hash
 
 # SQLite - PythonAnywhere uyumlu
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'ays.db')}"
+# PythonAnywhere için tam path, lokal için relatif
+if os.path.exists('/home/SerkanEFE'):
+    # PythonAnywhere
+    DATABASE_URL = "sqlite:////home/SerkanEFE/ays.db"
+else:
+    # Lokal
+    DATABASE_URL = "sqlite:///./ays.db"
 engine = create_engine(
   DATABASE_URL,
   connect_args={"check_same_thread": False},

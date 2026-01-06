@@ -1,0 +1,31 @@
+name: ays_mobile
+description: "Apartman Yönetim Sistemi - Flutter Mobil Uygulama"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  http: ^1.2.0
+  dio: ^5.4.0
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  jwt_decode: ^0.3.1
+  intl: ^0.19.0
+  fl_chart: ^0.66.0
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true

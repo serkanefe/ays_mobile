@@ -19,12 +19,10 @@ import shutil
 import os
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
-from flask_socketio import SocketIO, emit
 
 init_db()
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins='*', async_mode='threading')
 
 # CORS: tüm kaynaktan gelen istekleri kabul et
 CORS(app, 
@@ -1550,7 +1548,12 @@ def backup_database():
 #   }, broadcast=True)
 
 if __name__ == '__main__':
+  try:
+    from ngrok import connect
+    tunnel = connect(5000, "http")
+    print(f"\n🚀 API çalışıyor: {tunnel}")
+    print(f"📱 Flutter'da bu URL'i kullan!\n")
+  except Exception as e:
+    print(f"⚠️ ngrok bağlanamadı: {e}")
+  
   app.run(host='0.0.0.0', port=5000, debug=False)
-
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000)

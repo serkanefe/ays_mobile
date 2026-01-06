@@ -18,10 +18,12 @@ from sqlalchemy.orm import sessionmaker, relationship
 from werkzeug.security import generate_password_hash
 
 # SQLite - PythonAnywhere uyumlu
-DATABASE_URL = "postgresql://postgres.ujkoketijvkbdbnanwvh:ayspass737526@aws-1-ap-south-1.pooler.supabase.com:6543/postgres"
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'ays.db')}"
 engine = create_engine(
   DATABASE_URL,
-  pool_pre_ping=True,
+  connect_args={"check_same_thread": False},
   echo=False,
 )
 
